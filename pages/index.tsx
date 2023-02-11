@@ -11,7 +11,7 @@ export default function Home() {
       <main>
         <div>
           <h1 className="text-3xl font-bold grid place-items-center h-screen">
-            Hello, I'm Eric.
+            Hello, I&apos;m Eric.
           </h1>
         </div>
       </main>
