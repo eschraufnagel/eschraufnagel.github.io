@@ -23,14 +23,14 @@ export default function Home() {
               Healthcare Technology Executive
             </h3>
             <p className="text-md py-5 leading-8 text-gray-800 md:text-xl max-w-xl mx-auto">
-              Hello, I'm <strong>Eric</strong>! Co-Founder &amp; VP of Engineering for a venture-backed company focused on improving the experience for participants in a clinical trial. 
+              Hello, I&apos;m <strong>Eric</strong>! Co-Founder &amp; VP of Engineering for a venture-backed company focused on improving the experience for participants in a clinical trial. 
               <br /><br/>
               I love solving problems that patients face while interacting with healthcare systems. 
             </p>
           </div>
           <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600">
-            <a href="https://www.linkedin.com/in/ericschraufnagel/" target="_blank"><AiFillLinkedin /></a>
-            <a href="https://github.com/eschraufnagel" target="_blank"><AiFillGithub /></a>
+            <a href="https://www.linkedin.com/in/ericschraufnagel/" target="_blank" rel="noreferrer"><AiFillLinkedin /></a>
+            <a href="https://github.com/eschraufnagel" target="_blank" rel="noreferrer"><AiFillGithub /></a>
           </div>
           <div className="relative mx-auto w-64 h-64 mt-20 md:72 md:w-72">
             <Image src={profile} alt="Eric Schraufnagel" className="rounded-full" />
