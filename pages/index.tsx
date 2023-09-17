@@ -13,19 +13,21 @@ export default function Home() {
         <meta name="description" content="Eric Schraufnagel" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <main className="bg-white px-10 md:mt-36 md:px-20 lg:px-40">
+      <main className="bg-white px-10 md:mt-24 md:px-20 lg:px-40">
         <section className="min-h-screen">
           <div className="text-center p-10">
             <h2 className="text-5xl py-2 text-rose-600 font-medium md:text-6xl">
               Eric Schraufnagel
             </h2>
             <h3 className="text-2xl py-2 md:text-3xl">
-              Healthcare Technology Executive
+              Healthcare Technology Leader
             </h3>
             <p className="text-md py-5 leading-8 text-gray-800 md:text-xl max-w-xl mx-auto">
-              Hello, I&apos;m <strong>Eric</strong>! Co-Founder &amp; VP of Engineering for a venture-backed company focused on improving the experience for participants in a clinical trial. 
+              Hello, I&apos;m <strong>Eric</strong>! Co-Founder &amp; VP of Engineering for a venture-backed company focused on improving the participant experience in a clinical trial. 
               <br /><br/>
-              I love solving problems that patients face while interacting with healthcare systems. 
+              I love helping patients navigate their healthcare experience using technology.
+              <br /><br/>
+              Reach out to me via <a className="text-rose-600 no-underline hover:underline ..." href="https://www.linkedin.com/in/ericschraufnagel/" target="_blank" rel="noreferrer">LinkedIn</a> to chat.
             </p>
           </div>
           <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600">
