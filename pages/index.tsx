@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
       <main className="bg-white px-10 md:mt-24 md:px-20 lg:px-40">
         <section className="min-h-screen">
-          <div className="text-center p-10">
+          <div className="text-center py-10 px-4 sm:p-10">
             <h2 className="text-5xl py-2 text-rose-600 font-medium md:text-6xl">
               Eric Schraufnagel
             </h2>
