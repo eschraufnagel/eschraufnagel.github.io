@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { AiFillLinkedin, AiFillGithub } from 'react-icons/ai';
+import { MdPedalBike } from 'react-icons/md';
 import Image from 'next/image';
 import profile from "../public/profile.jpg";
 import {useState} from 'react'
@@ -33,6 +34,7 @@ export default function Home() {
           <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600">
             <a href="https://www.linkedin.com/in/ericschraufnagel/" target="_blank" rel="noreferrer"><AiFillLinkedin /></a>
             <a href="https://github.com/eschraufnagel" target="_blank" rel="noreferrer"><AiFillGithub /></a>
+            <a href="https://englishcyclist.com/en-de/blogs/news/map-story-eric" target="_blank" rel="noreferrer"><MdPedalBike /></a>
           </div>
           <div className="relative mx-auto w-64 h-64 mt-20 md:72 md:w-72">
             <Image src={profile} alt="Eric Schraufnagel" className="rounded-full" />
