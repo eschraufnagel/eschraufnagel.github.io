@@ -1,11 +1,16 @@
 version: "3.8"
 services: 
   frontend:
-    platform: linux/amd64
     container_name: frontend
+    platform: linux/amd64
     build: .
     restart: always #change if you don't want your container restarting
     environment:
       - NODE_ENV=production
+  nginx:
+    container_name: nginx
+    platform: linux/amd64
+    build:
+      context: ./nginx
     ports:
-      - 3000:3000
+      - 80:80
