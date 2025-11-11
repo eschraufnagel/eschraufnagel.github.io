@@ -1,6 +1,6 @@
 ## Project Overview
 
-This is a personal portfolio website (eschraufnagel.github.io) built with Next.js 13, TypeScript, and Tailwind CSS. It's hosted on GitHub Pages at ericschraufnagel.com and can also be run locally using Docker with nginx as a reverse proxy.
+This is a personal portfolio website (eschraufnagel.github.io) built with Next.js 16, TypeScript, and Tailwind CSS. It's hosted on GitHub Pages at ericschraufnagel.com and can also be run locally using Docker with nginx as a reverse proxy.
 
 ## Development Commands
 
@@ -40,13 +40,13 @@ npm run deploy  # Builds, exports, commits to gh-pages branch
 ### Multi-Stage Docker Build
 
 The Dockerfile uses a 4-stage build process:
-1. **base**: Node 18 Alpine base image
+1. **base**: Node 20 Alpine base image (required for Next.js 16)
 2. **deps**: Install dependencies only
 3. **dev**: Development stage with full source (target for docker-compose.yml)
 4. **builder**: Build Next.js app with static export
 5. **runner**: Production runtime with minimal footprint
 
-Next.js is configured with `output: 'standalone'` in next.config.js for optimal Docker deployment.
+Next.js is configured with `output: 'export'` in next.config.js for static site generation.
 
 ### Reverse Proxy Setup
 
@@ -59,9 +59,10 @@ Nginx (nginx/default.conf) acts as a reverse proxy:
 ### Static Export Configuration
 
 Next.js config (next.config.js):
-- `output: 'standalone'` for Docker
+- `output: 'export'` for static site generation (GitHub Pages compatible)
 - `images: { unoptimized: true }` for static export compatibility
-- Static site exported to `./out` directory
+- Static site exported to `./out` directory (gitignored on main branch)
+- Turbopack enabled by default for faster builds (5-10x faster dev server)
 
 ### Page Structure
 
@@ -75,8 +76,10 @@ Uses TypeScript with path alias `@/*` pointing to root directory.
 
 ## Key Configuration
 
-- **Tailwind**: Configured for dark mode class strategy, scans pages/ directory
-- **TypeScript**: Strict mode enabled, paths alias `@/*` to root
-- **Next.js**: Static export mode, no image optimization (required for GitHub Pages)
-- **ESLint**: Using Next.js recommended config
+- **Next.js**: v16.0.1 with Turbopack, static export mode, no image optimization (required for GitHub Pages)
+- **React**: v18.3.0
+- **TypeScript**: v5.1+ with strict mode enabled, paths alias `@/*` to root
+- **Node.js**: v20.9.0+ (required by Next.js 16)
+- **ESLint**: v9 with Next.js recommended config
+- **Tailwind CSS**: v3 configured for dark mode class strategy, scans pages/ directory
 - **Domain**: Custom domain ericschraufnagel.com (configured via CNAME file)
