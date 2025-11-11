@@ -1,7 +1,7 @@
 ###################################################################################
 # 1. Base Image & Depenencies Stage
 
-FROM node:18-alpine as base
+FROM node:20-alpine as base
 
 # Install dependencies only when needed
 FROM base AS deps

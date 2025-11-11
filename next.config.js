@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   //basePath: '/eschraufnagel.github.io',
-  output: 'standalone',
+  output: 'export',
   reactStrictMode: true,
   images: {
     unoptimized: true
