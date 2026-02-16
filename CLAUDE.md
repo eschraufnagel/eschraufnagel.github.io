@@ -44,7 +44,7 @@ npm run deploy  # Builds, exports, commits to gh-pages branch
 ### Multi-Stage Docker Build
 
 The Dockerfile uses a 4-stage build process:
-1. **base**: Node 20 Alpine base image (required for Next.js 16)
+1. **base**: Node 22 Alpine base image (required for Next.js 16)
 2. **deps**: Install dependencies only
 3. **dev**: Development stage with full source (target for docker-compose.yml)
 4. **builder**: Build Next.js app with static export
@@ -80,10 +80,10 @@ Uses TypeScript with path alias `@/*` pointing to root directory.
 
 ## Key Configuration
 
-- **Next.js**: v16.0.1 with Turbopack, static export mode, no image optimization (required for GitHub Pages)
+- **Next.js**: v16.1.6 with Turbopack, static export mode, no image optimization (required for GitHub Pages)
 - **React**: v18.3.0
 - **TypeScript**: v5.1+ with strict mode enabled, paths alias `@/*` to root
-- **Node.js**: v20.9.0+ (required by Next.js 16)
-- **ESLint**: v9 with Next.js recommended config
+- **Node.js**: v22.0.0+ (required by Next.js 16)
+- **ESLint**: v9 with flat config (`eslint.config.mjs`), Next.js core-web-vitals preset
 - **Tailwind CSS**: v3 configured for dark mode class strategy, scans pages/ directory
 - **Domain**: Custom domain ericschraufnagel.com (configured via CNAME file)

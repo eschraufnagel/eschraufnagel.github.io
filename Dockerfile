@@ -1,7 +1,7 @@
 ###################################################################################
 # 1. Base Image & Depenencies Stage
 
-FROM node:20-alpine as base
+FROM node:22-alpine as base
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -40,7 +40,7 @@ RUN npm run build
 ###################################################################################
 # 4. Runner Stage
 
-# Production image, copy all the files and run next
+# Production image, copy the static export and serve it
 FROM base AS runner
 WORKDIR /app
 
@@ -50,17 +50,11 @@ ENV NEXT_TELEMETRY_DISABLED 1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY --from=builder /app/public ./public
-
-# Set the correct permission for prerender cache
-RUN mkdir .next
-RUN chown nextjs:nodejs .next
-
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# Copy the static export output
+COPY --from=builder --chown=nextjs:nodejs /app/out ./out
 
 USER nextjs
 
-CMD ["node", "server.js"]
+# Serve the static site (install a simple static server)
+RUN npm install -g serve
+CMD ["serve", "out", "-l", "3000"]
